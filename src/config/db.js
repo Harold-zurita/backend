@@ -4,10 +4,10 @@ const MariaConexion = () => {
 
     return mysql.createConnection({
         
-        host: "mysql-antoniomonje.alwaysdata.net",
-        user: "234882_harold",
-        password: "zurita1024!",
-        database: "antoniomonje_menugement_db"
+        host: process.env.HOST_NAME,
+        user: process.env.USER_NAME,
+        password: process.env.PASS_NAME,
+        database: process.env.DB_NAME
         
     });
 
