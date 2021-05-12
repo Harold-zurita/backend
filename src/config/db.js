@@ -13,4 +13,12 @@ const MariaConexion = () => {
 
 }
 
+MariaConexion.connect((error)=>{
+    if(error){
+        console.log(error);
+    }else{
+        console.log('Conectado');
+    }
+});
+
 module.exports = MariaConexion;
