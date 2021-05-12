@@ -5,7 +5,7 @@ const {check} = require('express-validator');
 const StatusError = require('../middlewares/StatusError');
 
 /**Controlador */
-const { RecetaGet, RegistrarRecetas, uploadImage} = require('../controllers/Recetas');
+const {RecetaGet, RegistrarRecetas, uploadImage} = require('../controllers/Recetas');
 
 RecetaRouter.get('/getRecetas', (req, res) => RecetaGet(req, res));
 
@@ -18,10 +18,9 @@ RecetaRouter.post('/registrar',[
     check('preparacion', 'es requerido, Error').notEmpty(),
     check('tiempoPrepa', 'es requerido, Error').notEmpty(),
     check('imagen', 'obligatorio').notEmpty(),
-    check('imagen').custom((img)=> {
+    check('imagen').custom( async(img)=> {
 
         let separar = img.split('.');
-        console.log(separar);
         const extension = separar[separar.length-1];
         if(extension ==='jpg' || extension ==='JPEG' || extension ==='png' || extension ==='JPG' || extension ==='PNG' || extension === 'jpeg'){
             return img;
@@ -32,8 +31,8 @@ RecetaRouter.post('/registrar',[
     }),
     StatusError
 
-], (req, res)=> RegistrarRecetas(req, res));
+],(req, res) => RegistrarRecetas(req, res));
 
-RecetaRouter.post('/uploadImage', (req,res) => uploadImage(req, res))
+RecetaRouter.post('/uploadImage', (req, res) => uploadImage(req, res))
 
 module.exports = RecetaRouter;
