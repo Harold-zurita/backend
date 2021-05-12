@@ -20,7 +20,6 @@ class RecetaController{
             res.json({rows});
 
         });
-        //db.end();
     }
 
     async RegistrarRecetas(req, res){
