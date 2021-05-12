@@ -1,6 +1,5 @@
 const { Router } = require('express');
 const RecetaRouter = Router();
-
 const {check} = require('express-validator');
 const StatusError = require('../middlewares/StatusError');
 
