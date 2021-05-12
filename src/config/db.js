@@ -1,17 +1,13 @@
 const mysql = require('mysql');
 
-const MariaConexion = () => {
-
-    return mysql.createConnection({
+const MariaConexion = mysql.createConnection({
         
-        host: "mysql-antoniomonje.alwaysdata.net",
-        user: "234882_harold",
-        password: "zurita1024!",
-        database: "antoniomonje_menugement_db"
+    host: "mysql-antoniomonje.alwaysdata.net",
+    user: "234882_harold",
+    password: "zurita1024!",
+    database: "antoniomonje_menugement_db"
         
-    });
-
-}
+});
 
 MariaConexion.connect((error)=>{
     if(error){
