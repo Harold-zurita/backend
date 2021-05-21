@@ -43,7 +43,7 @@ MenuRouter.post('/nuevoMenu', [
 });
 
 MenuRouter.get('/getMenu', (req,res)=>{
-    MariaConexion.query(`SELECT * FROM menu`, async(error, results, fields) => {
+    MariaConexion.query(`SELECT ID, NOMBREMENU, NOMBRERECETA FROM menu, receta WHERE IDDESAYUNO = ID_RECETA or IDALMUERZO = ID_RECETA or IDCENA = ID_RECETA`, async(error, results, fields) => {
         if (error){
             console.log(error);
         }
