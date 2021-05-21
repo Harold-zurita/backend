@@ -43,7 +43,7 @@ MenuRouter.post('/nuevoMenu', [
 });
 
 MenuRouter.get('/getMenu', (req,res)=>{
-    MariaConexion.query(`SELECT ID, NOMBREMENU, NOMBRERECETA FROM menu, receta WHERE IDDESAYUNO = ID_RECETA or IDALMUERZO = ID_RECETA or IDCENA = ID_RECETA`, async(error, results, fields) => {
+    MariaConexion.query(`SELECT m.ID AS "IDMENU", m.NOMBREMENU AS "MENU", r1.NOMBRERECETA AS "DESAYUNO", r2.NOMBRERECETA AS "ALMUERZO", r3.NOMBRERECETA AS "CENA" FROM menu m JOIN receta r1 ON m.IDDESAYUNO = r1.ID_RECETA JOIN receta r2 ON m.IDALMUERZO = r2.ID_RECETA JOIN receta r3 ON m.IDCENA = r3.ID_RECETA`, async(error, results, fields) => {
         if (error){
             console.log(error);
         }
