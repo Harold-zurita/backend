@@ -2,10 +2,10 @@ const mysql = require('mysql');
 
 const MariaConexion = mysql.createConnection({
         
-    host: "mysql-antoniomonje.alwaysdata.net",
-    user: "234882_harold",
-    password: "zurita1024!",
-    database: "antoniomonje_menugement_db"
+    host: "mysql-harold.alwaysdata.net",
+    user: "harold_zurita",
+    password: "harry102424zurita",
+    database: "harold_menugementsprint3"
         
 });
 
