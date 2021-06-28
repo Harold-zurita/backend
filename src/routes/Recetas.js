@@ -10,13 +10,13 @@ RecetaRouter.get('/getRecetas', (req, res) => RecetaGet(req, res));
 
 RecetaRouter.post('/registrar',[
 
-    check('nombReceta', 'es requerido, Error').notEmpty(),
-    check('dificultad', 'es requerido, Error').notEmpty(),
-    check('categoria', 'es requerido, Error').notEmpty(),
-    check('ingredientes', 'es requerido, Error').notEmpty(),
-    check('preparacion', 'es requerido, Error').notEmpty(),
-    check('tiempoPrepa', 'es requerido, Error').notEmpty(),
-    check('imagen', 'obligatorio').notEmpty(),
+    check('nombReceta', 'Nombre es requerido, Error').notEmpty(),
+    check('dificultad', 'Dificultad es requerido, Error').notEmpty(),
+    check('categoria', 'Categoría es requerido, Error').notEmpty(),
+    check('ingredientes', 'Ingredientes es requerido, Error').notEmpty(),
+    check('preparacion', ' Preparación es requerido, Error').notEmpty(),
+    check('tiempoPrepa', 'Tiempo es requerido, Error').notEmpty(),
+    check('imagen', 'Imagen obligatorio').notEmpty(),
     check('imagen').custom( async(img)=> {
 
         let separar = img.split('.');
